@@ -28,7 +28,23 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
           appBar: AppBar(
-            title: const Text("Report Your Bansos"),
+            leading: const Icon(Icons.location_pin),
+            title: const Text.rich(TextSpan(text: "", children: [
+              TextSpan(
+                  text: "Report ",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, letterSpacing: 1.5)),
+              TextSpan(
+                  text: "Your",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1.5,
+                      decoration: TextDecoration.underline)),
+              TextSpan(
+                  text: " Bansos",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, letterSpacing: 1.5))
+            ])),
             centerTitle: true,
           ),
           body: BansosList()),

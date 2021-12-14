@@ -29,6 +29,7 @@ class BansosList extends StatefulWidget {
 }
 
 class _BansosListState extends State<BansosList> {
+  int counter = 0;
   Timer? _timer;
   var allBansosID =
       getUserBansos(); // later this function will accept user parameter
@@ -43,7 +44,7 @@ class _BansosListState extends State<BansosList> {
 
   @override
   void initState() {
-    _timer = Timer(Duration(seconds: 5), () {
+    _timer = Timer.periodic(Duration(seconds: 5), (timer) {
       checkForUpdates();
     });
     super.initState();
@@ -61,7 +62,6 @@ class _BansosListState extends State<BansosList> {
   void checkForUpdates() async {
     List<Bansos> currentBansos = await allBansosID;
     List<Bansos> maybeNewBansos = await getUserBansos();
-    print("$currentBansos $maybeNewBansos");
     bool thereIsNewBansos = currentBansos.length != maybeNewBansos.length;
     if (thereIsNewBansos && updateAvailable == false) {
       setState(() {

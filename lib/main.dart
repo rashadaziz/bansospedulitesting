@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
             ])),
             centerTitle: true,
           ),
-          body: BansosList()),
+          body: const BansosList()),
     );
   }
 }

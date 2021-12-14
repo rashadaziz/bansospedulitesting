@@ -61,6 +61,7 @@ class _BansosListState extends State<BansosList> {
   void checkForUpdates() async {
     List<Bansos> currentBansos = await allBansosID;
     List<Bansos> maybeNewBansos = await getUserBansos();
+    print("$currentBansos $maybeNewBansos");
     bool thereIsNewBansos = currentBansos.length != maybeNewBansos.length;
     if (thereIsNewBansos && updateAvailable == false) {
       setState(() {

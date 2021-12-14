@@ -1,1 +1,40 @@
-{"all_bansos": ["bs-839282","bs-728783","bs-5490472","bs-028373"]}
+{
+  "all_bansos": ["bs-839282", "bs-728783", "bs-5490472", "bs-028373"],
+  "bansos_details": {
+    "bs-839282": {
+      "kelurahan": "Bintaro",
+      "kecamatan": "Pessangrahan",
+      "provinsi": "DKI Jakarta",
+      "bentuk_bantuan": { "Kerupuk": { "jumlah": 5, "satuan": "kg" } },
+      "responsible_admin": "Andre Taulani",
+      "timestamp": "11/14/2021, 08:42:55"
+    },
+    "bs-728783": {
+      "kelurahan": "Aqua",
+      "kecamatan": "Samsung",
+      "provinsi": "LG Monitor",
+      "bentuk_bantuan": {
+        "Kerupuk": { "jumlah": 5, "satuan": "kg" },
+        "Nasi Goreng": { "jumlah": 2, "satuan": "bungkus" }
+      },
+      "responsible_admin": "Andre Taulani",
+      "timestamp": "11/14/2021, 08:42:55"
+    },
+    "bs-5490472": {
+      "kelurahan": "Asus",
+      "kecamatan": "Keychron",
+      "provinsi": "Logitech Mousepad",
+      "bentuk_bantuan": { "Kerupuk": { "jumlah": 5, "satuan": "kg" } },
+      "responsible_admin": "Andre Taulani",
+      "timestamp": "11/14/2021, 08:42:55"
+    },
+    "bs-028373": {
+      "kelurahan": "Arthome",
+      "kecamatan": "Dettol",
+      "provinsi": "Ikea",
+      "bentuk_bantuan": { "Kerupuk": { "jumlah": 5, "satuan": "kg" } },
+      "responsible_admin": "Andre Taulani",
+      "timestamp": "11/14/2021, 08:42:55"
+    }
+  }
+}

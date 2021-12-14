@@ -57,8 +57,12 @@ class _BansosListState extends State<BansosList> {
                   itemCount: bansosID.length,
                   itemBuilder: (context, index) {
                     return Card(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)),
                         elevation: 5,
                         child: ListTile(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
                           subtitle: Text("click to view details"),
                           title: Text("BANSOS ${bansosID[index]}",
                               style: const TextStyle(
@@ -68,13 +72,13 @@ class _BansosListState extends State<BansosList> {
                             Icons.arrow_right,
                             color: Colors.blue,
                           ),
-                          tileColor: Colors.blue[50],
+                          tileColor: Colors.blue[100],
                           onTap: () => {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        BansosDetails(bansos: bansosID[index])))
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) =>
+                            //             BansosDetails(bansos: bansosID[index])))
                           }, // route to details page based on the bansosID
                         ));
                   });

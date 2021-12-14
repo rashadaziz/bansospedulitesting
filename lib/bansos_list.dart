@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:bansospedulimobileprototype/bansos_details.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
@@ -16,7 +15,7 @@ getUserBansos() async {
   for (var id in data) {
     Bansos bansos = Bansos(id);
     allUserBansos.add(bansos);
-    bansos.fetchBansosData();
+    // bansos.fetchBansosData();
   }
 
   return Future.delayed(const Duration(seconds: 2), () => allUserBansos);
@@ -44,7 +43,7 @@ class _BansosListState extends State<BansosList> {
 
   @override
   void initState() {
-    _timer = Timer(Duration(minutes: 1), () {
+    _timer = Timer(Duration(seconds: 5), () {
       checkForUpdates();
     });
     super.initState();
@@ -60,16 +59,10 @@ class _BansosListState extends State<BansosList> {
   }
 
   void checkForUpdates() async {
-    List<String> maybeNewBansos = await getUserBansos();
-    List<String> output1 = maybeNewBansos
-        .where((element) => !allBansosID.contains(element))
-        .toList();
-    List<String> output2 = allBansosID
-        .where((element) => !maybeNewBansos.contains(element))
-        .toList();
-
-    if ((output2.isNotEmpty || output1.isNotEmpty) &&
-        updateAvailable == false) {
+    List<Bansos> currentBansos = await allBansosID;
+    List<Bansos> maybeNewBansos = await getUserBansos();
+    bool thereIsNewBansos = currentBansos.length != maybeNewBansos.length;
+    if (thereIsNewBansos && updateAvailable == false) {
       setState(() {
         updateAvailable = true;
       });
@@ -140,11 +133,11 @@ class _BansosListState extends State<BansosList> {
                             ),
                             tileColor: Colors.blue[100],
                             onTap: () => {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => BansosDetails(
-                                          bansos: bansosID[index - 1])))
+                              // Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) => BansosDetails(
+                              //             bansos: bansosID[index - 1])))
                             }, // route to details page based on the bansosID
                           ));
                     }

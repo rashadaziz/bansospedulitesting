@@ -9,15 +9,29 @@ class BansosDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Details for Bansos ID#$bansos",
-          style: TextStyle(fontSize: 18),
+        appBar: AppBar(
+          title: Text(
+            "Details for Bansos ID#$bansos",
+            style: TextStyle(fontSize: 18),
+          ),
+          backgroundColor: Colors.grey[50],
+          foregroundColor: Colors.blue,
+          elevation: 0,
         ),
-        backgroundColor: Colors.grey[50],
-        foregroundColor: Colors.blue,
-        elevation: 0,
-      ),
-    );
+        body: bansos.bansosDetails != null
+            ? Container(child: Text("${bansos.bansosDetails}"))
+            : FutureBuilder(
+                future: bansos.fetchBansosData(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState != ConnectionState.done) {
+                    return const Center(
+                        child: CircularProgressIndicator(
+                      strokeWidth: 5,
+                    ));
+                  } else {
+                    return Text("${snapshot.data}");
+                  }
+                },
+              ));
   }
 }

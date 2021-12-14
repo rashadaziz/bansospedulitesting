@@ -14,7 +14,9 @@ getUserBansos() async {
   List<Bansos> allUserBansos = [];
 
   for (var id in data) {
-    allUserBansos.add(Bansos(id));
+    Bansos bansos = Bansos(id);
+    allUserBansos.add(bansos);
+    bansos.fetchBansosData();
   }
 
   return Future.delayed(const Duration(seconds: 2), () => allUserBansos);
